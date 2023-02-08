@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argo-demo-backend
+spec:
+  selector:
+    matchLabels:
+      app: argo-demo
+      tier: backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: argo-demo
+        tier: backend
+    spec:
+      containers:
+        - name: argo-backend
+          image: "balazsnagybudd946/argo-backend:20"

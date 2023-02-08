@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argo-demo-frontend
+spec:
+  selector:
+    matchLabels:
+      app: argo-demo
+      tier: frontend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: argo-demo
+        tier: frontend
+    spec:
+      containers:
+        - name: nginx
+          image: "balazsnagybudd946/argo-frontend:21"
+          lifecycle:
+            preStop:
+              exec:
+                command: ["/usr/sbin/nginx","-s","quit"]
