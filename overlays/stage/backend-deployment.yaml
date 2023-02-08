@@ -3,4 +3,4 @@ kind: Deployment
 metadata:
   name: argo-demo-backend
 spec:
-  replicas: 3
+  replicas: 5
